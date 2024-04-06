@@ -3,10 +3,17 @@ import ActiveDocName from "./ActiveDocName";
 import DeleteButton from "./DeleteButton";
 import SaveButton from "./SaveButton";
 import logo from "./assets/logo.svg";
-export default function Navbar() {
+export default function Navbar({ sidebarIsOpen, setSidebarIsOpen }) {
   return (
-    <nav className="bg-gray-800 flex">
-      <SidebarToggle />
+    <nav
+      className={`${
+        sidebarIsOpen ? `translate-x-64` : `translate-x-0`
+      } fixed w-full transition-all duration-200 ease-in-out bg-gray-800 flex h-14 sm:h-[4.5rem]`}
+    >
+      <SidebarToggle
+        sidebarIsOpen={sidebarIsOpen}
+        setSidebarIsOpen={setSidebarIsOpen}
+      />
       <div className="flex ml-6 py-2 sm:py-4 justify-between flex-grow">
         <div className="flex items-center">
           <img src={logo} alt="" className="hidden lg:block" />

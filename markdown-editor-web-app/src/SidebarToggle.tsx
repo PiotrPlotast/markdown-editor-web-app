@@ -1,9 +1,14 @@
 import iconMenu from "./assets/icon-menu.svg";
-
-export default function SidebarToggle() {
+import iconClose from "./assets/icon-close.svg";
+export default function SidebarToggle({ sidebarIsOpen, setSidebarIsOpen }) {
   return (
-    <button className="transition-all bg-gray-700 hover:bg-orange-200 px-[0.813rem] sm:px-[1.375rem]">
-      <img src={iconMenu} alt="" />
+    <button
+      onClick={() => {
+        setSidebarIsOpen(!sidebarIsOpen);
+      }}
+      className="transition-all bg-gray-700 hover:bg-orange-200 w-14 h-14 flex items-center justify-center sm:h-[4.5rem] sm:w-[4.5rem] lg:hidden"
+    >
+      <img src={sidebarIsOpen ? iconClose : iconMenu} alt="" />
     </button>
   );
 }

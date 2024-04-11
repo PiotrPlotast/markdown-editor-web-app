@@ -8,7 +8,7 @@ export default function Navbar({ sidebarIsOpen, setSidebarIsOpen }) {
     <nav
       className={`${
         sidebarIsOpen ? `translate-x-64` : `translate-x-0`
-      } fixed w-full transition-all duration-200 ease-in-out bg-gray-800 flex h-14 sm:h-[4.5rem]`}
+      } sticky top-0 w-full transition-all duration-200 ease-in-out bg-gray-800 flex h-14 sm:h-[4.5rem]`}
     >
       <SidebarToggle
         sidebarIsOpen={sidebarIsOpen}

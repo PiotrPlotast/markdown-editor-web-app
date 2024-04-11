@@ -6,7 +6,7 @@ export default function Sidebar({ sidebarIsOpen }) {
     <div
       className={`${
         sidebarIsOpen ? `translate-x-0` : `-translate-x-full`
-      } flex flex-col justify-between  w-64 transition-transform duration-200 ease-in-out bg-gray-900 fixed h-full z-50 pl-6 pt-7`}
+      }  top-0 flex flex-col justify-between  w-64 transition-transform duration-200 ease-in-out bg-gray-900 fixed h-full pl-6 pt-7 pb-6`}
     >
       <div>
         <h1>

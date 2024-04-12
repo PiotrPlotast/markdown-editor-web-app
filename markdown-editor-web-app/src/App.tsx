@@ -14,7 +14,7 @@ function App() {
       />
       <Sidebar sidebarIsOpen={sidebarIsOpen} />
       {documentIsOpen ? (
-        <DocLayout />
+        <DocLayout sidebarIsOpen={sidebarIsOpen} />
       ) : (
         <NoDocLayout sidebarIsOpen={sidebarIsOpen} />
       )}

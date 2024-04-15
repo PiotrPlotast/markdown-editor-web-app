@@ -20,8 +20,8 @@ export default {
     },
     fontFamily: {
       roboto: ["Roboto", "sans-serif"],
-      robotoSlab: ["Roboto Slab", "serif"],
-      robotoMono: ["Roboto Mono", "monospace"],
+      robotoSlab: ['"Roboto Slab"', "serif"],
+      robotoMono: ['"Roboto Mono"', "monospace"],
     },
     fontSize: {
       "body-s": "0.8125rem",

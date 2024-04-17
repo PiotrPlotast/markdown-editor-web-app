@@ -1,24 +1,15 @@
-import { useState } from "react";
-import Navbar from "./Navbar";
-import Sidebar from "./Sidebar";
-import DocLayout from "./DocLayout";
-import NoDocLayout from "./NoDocLayout";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import Login from "./Login";
 function App() {
-  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
-  const [documentIsOpen, setDocumentIsOpen] = useState(true);
   return (
-    <div className="h-[100dvh] overflow-hidden">
-      <Navbar
-        sidebarIsOpen={sidebarIsOpen}
-        setSidebarIsOpen={setSidebarIsOpen}
-      />
-      <Sidebar sidebarIsOpen={sidebarIsOpen} />
-      {documentIsOpen ? (
-        <DocLayout sidebarIsOpen={sidebarIsOpen} />
-      ) : (
-        <NoDocLayout sidebarIsOpen={sidebarIsOpen} />
-      )}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate replace to="/home" />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

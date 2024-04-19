@@ -7,7 +7,6 @@ export default function SignOutButton() {
   const [user, setUser] = useState(false);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(getAuth(app), (user) => {
-      console.log(user);
       if (!user) {
         navigate("/login");
       }
@@ -23,6 +22,5 @@ export default function SignOutButton() {
     const auth = getAuth(app);
     auth.signOut();
   }
-  console.log(user);
   return <button onClick={handleClick}>Sign out</button>;
 }

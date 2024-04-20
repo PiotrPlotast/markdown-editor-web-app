@@ -1,8 +1,4 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { collection, addDoc, getDocs } from "firebase/firestore";
-
 const firebaseConfig = {
   apiKey: "AIzaSyAJ8yCF9nMmvTPB0tn1Baw24GWkGS6m7WI",
   authDomain: "markdown-editor-f1ed3.firebaseapp.com",
@@ -15,18 +11,3 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-// const db = getFirestore(app);
-
-// try {
-//   const docRef = await addDoc(collection(db, "documents"), {
-//     contents: "test!",
-//   });
-//   console.log("Document written with ID: ", docRef.id);
-// } catch (e) {
-//   console.error("Error adding document: ", e);
-// }
-
-// const querySnapshot = await getDocs(collection(db, "documents"));
-// querySnapshot.forEach((doc) => {
-//   console.log(`${doc.id} => ${doc.data()}`);
-// });

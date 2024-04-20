@@ -22,5 +22,12 @@ export default function SignOutButton() {
     const auth = getAuth(app);
     auth.signOut();
   }
-  return <button onClick={handleClick}>Sign out</button>;
+  return (
+    <button
+      onClick={handleClick}
+      className="transition-all bg-orange-200 hover:bg-orange-100  text-white rounded p-2"
+    >
+      Sign out
+    </button>
+  );
 }

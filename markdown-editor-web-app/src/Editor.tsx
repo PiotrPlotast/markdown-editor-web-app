@@ -5,11 +5,17 @@ export default function ActiveDocument({
   setShowEditor,
   showPreview,
   setShowPreview,
+  setMarkdown,
+  markdown,
 }) {
   return (
-    <div className={`${showEditor && "hidden"} ${showEditor && "sm:hidden"}`}>
+    <div
+      className={`${showEditor && "hidden"} ${
+        showEditor && "sm:hidden"
+      } h-full`}
+    >
       <div
-        className={`bg-gray-200 h-[2.625rem] flex items-center justify-between px-4 sm:border-r-[1px] border-r-gray-300`}
+        className={`bg-gray-200 h-[2.625rem] flex items-center justify-between px-4 sm:border-r-[1px] border-r-gray-300 `}
       >
         <span className="text-gray-500 text-heading-s font-roboto tracking-[2px]">
           MARKDOWN
@@ -24,7 +30,15 @@ export default function ActiveDocument({
           <img src={iconShowPreview} alt="" />
         </button>
       </div>
-      <div></div>
+      <div className="" style={{ height: "inherit" }}>
+        <textarea
+          style={{ height: "calc(100% - 7rem)" }}
+          name="markdown"
+          id="markdown"
+          className="w-full p-4 font-robotoMono text-p leading-6 text-gray-700 focus:outline-none"
+          onChange={(e) => setMarkdown(e.target.value)}
+        ></textarea>
+      </div>
     </div>
   );
 }

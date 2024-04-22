@@ -3,7 +3,12 @@ import ActiveDocName from "./ActiveDocName";
 import DeleteButton from "./DeleteButton";
 import SaveButton from "./SaveButton";
 import logo from "./assets/logo.svg";
-export default function Navbar({ sidebarIsOpen, setSidebarIsOpen }) {
+export default function Navbar({
+  openedDocumentName,
+  setOpenedDocumentName,
+  sidebarIsOpen,
+  setSidebarIsOpen,
+}) {
   return (
     <nav
       className={`${
@@ -18,7 +23,10 @@ export default function Navbar({ sidebarIsOpen, setSidebarIsOpen }) {
         <div className="flex items-center">
           <img src={logo} alt="" className="hidden lg:block" />
           <div className="hidden lg:block lg:h-full lg:w-[1px] lg:bg-gray-600 mr-6 lg:ml-8"></div>
-          <ActiveDocName />
+          <ActiveDocName
+            openedDocumentName={openedDocumentName}
+            setOpenedDocumentName={setOpenedDocumentName}
+          />
         </div>
         <div className="flex space-x-6 mr-2 sm:mr-4">
           <DeleteButton />

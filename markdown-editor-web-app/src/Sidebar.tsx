@@ -1,7 +1,25 @@
+import { useEffect, useState } from "react";
 import logo from "./assets/logo.svg";
 import ThemeSwitcher from "./ThemeSwitcher";
 import NewDocumentButton from "./NewDocumentButton";
-export default function Sidebar({ sidebarIsOpen }) {
+import SignOutButton from "./SignOutButton";
+import { queryForDocuments } from "./FireStore";
+export default function Sidebar({
+  sidebarIsOpen,
+  openedDocumentID,
+  setOpenedDocumentID,
+  setOpenedDocumentName,
+  setOpenedDocumentContent,
+}) {
+  const [documentsList, setDocumentsList] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const result = await queryForDocuments();
+      setDocumentsList(result);
+    }
+
+    fetchData();
+  }, []);
   return (
     <div
       className={`${
@@ -16,9 +34,33 @@ export default function Sidebar({ sidebarIsOpen }) {
           My Documents
         </h2>
         <NewDocumentButton />
-        <ul></ul>
+        <ul>
+          {documentsList.map((document) => (
+            <button
+              onClick={() => {
+                if (document.id === openedDocumentID) {
+                  setOpenedDocumentID("");
+                  setOpenedDocumentName("");
+                  setOpenedDocumentContent("");
+                } else {
+                  setOpenedDocumentID(document.id);
+                  setOpenedDocumentName(document.name);
+                  setOpenedDocumentContent(document.contents);
+                }
+              }}
+              key={document.id}
+              className="text-gray-500 text-heading-s"
+            >
+              {document.date}
+              {document.name}
+            </button>
+          ))}
+        </ul>
       </div>
-      <ThemeSwitcher />
+      <div className="flex items-center justify-between pr-8">
+        <ThemeSwitcher />
+        <SignOutButton />
+      </div>
     </div>
   );
 }

@@ -1,15 +1,19 @@
 import { useState } from "react";
 import Editor from "./Editor";
 import Previev from "./Previev";
-export default function DocLayout({ sidebarIsOpen }) {
+export default function DocLayout({
+  sidebarIsOpen,
+  openedDocumentContent,
+  setOpenedDocumentContent,
+}) {
   const [showPreview, setShowPreview] = useState(true);
   const [showEditor, setShowEditor] = useState(true);
   const [markdown, setMarkdown] = useState("");
   return (
     <div
-      className={`transition-all sm:grid ${!showEditor && "sm:grid-cols-2"}   ${
-        sidebarIsOpen && "sm:ml-64"
-      }`}
+      className={`transition-all sm:grid h-full ${
+        !showEditor && "sm:grid-cols-2"
+      } ${sidebarIsOpen && "sm:ml-64"}`}
     >
       <Editor
         showPreview={showPreview}

@@ -6,6 +6,7 @@ import logo from "./assets/logo.svg";
 export default function Navbar({
   openedDocumentName,
   setOpenedDocumentName,
+  openedDocumentID,
   sidebarIsOpen,
   setSidebarIsOpen,
 }) {
@@ -29,7 +30,7 @@ export default function Navbar({
           />
         </div>
         <div className="flex space-x-6 mr-2 sm:mr-4">
-          <DeleteButton />
+          <DeleteButton openedDocumentID={openedDocumentID} />
           <SaveButton />
         </div>
       </div>

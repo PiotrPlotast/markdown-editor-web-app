@@ -36,6 +36,7 @@ export default function ActiveDocument({
           name="markdown"
           id="markdown"
           className="w-full p-4 font-robotoMono text-p leading-6 text-gray-700 focus:outline-none"
+          value={markdown}
           onChange={(e) => setMarkdown(e.target.value)}
         ></textarea>
       </div>

@@ -22,15 +22,12 @@ export default function Login() {
         {
           provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
           clientId:
-            "235415873638-oi75462ion3lnragsks9v83fdnqbc3ks.apps.googleusercontent.com",
+            "485750312779-i51a3js7r1j2c81dqlnn9tuqgtiumndg.apps.googleusercontent.com",
         },
         {
           provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
         },
-        // leave for ANOTHER video
-        // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
       ],
-      // required to enable one-tap sign-up credential helper
       credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
     });
   }, []);

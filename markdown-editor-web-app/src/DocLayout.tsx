@@ -8,7 +8,7 @@ export default function DocLayout({
 }) {
   const [showPreview, setShowPreview] = useState(true);
   const [showEditor, setShowEditor] = useState(true);
-  const [markdown, setMarkdown] = useState("");
+  const [markdown, setMarkdown] = useState(openedDocumentContent);
   return (
     <div
       className={`transition-all sm:grid h-full ${

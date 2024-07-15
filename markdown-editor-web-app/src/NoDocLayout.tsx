@@ -1,6 +1,7 @@
 import NewDocumentButton from "./NewDocumentButton";
 export default function NoDocLayout({
   sidebarIsOpen,
+  setDocumentCount,
 }: {
   sidebarIsOpen: boolean;
 }) {
@@ -13,7 +14,7 @@ export default function NoDocLayout({
       <span className="text-gray-600 font-roboto text-h4 sm:text-h2">
         No Document Selected
       </span>
-      <NewDocumentButton />
+      <NewDocumentButton setDocumentCount={setDocumentCount} />
     </div>
   );
 }

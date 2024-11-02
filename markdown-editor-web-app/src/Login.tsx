@@ -18,11 +18,10 @@ export default function Login() {
     ui.start("#firebaseui-auth-container", {
       signInSuccessUrl: "/home",
       signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
         {
           provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
           clientId:
-            "485750312779-i51a3js7r1j2c81dqlnn9tuqgtiumndg.apps.googleusercontent.com",
+            "485750312779-i99upa5jbshlrr2rehgr8bk2h3j4nl15.apps.googleusercontent.com",
         },
         {
           provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,

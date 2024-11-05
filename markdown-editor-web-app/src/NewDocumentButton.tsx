@@ -1,5 +1,3 @@
-import { addDocument } from "./FireStore";
-
 export default function NewDocumentButton({ setDocumentCount }) {
   async function addNewDocument() {
     setDocumentCount((prevCount) => prevCount + 1);

@@ -3,7 +3,6 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import NewDocumentButton from "./NewDocumentButton";
 import SignOutButton from "./SignOutButton";
 import IconDocument from "./assets/icon-document.svg";
-import { getDocumentID } from "./FireStore";
 export default function Sidebar({
   sidebarIsOpen,
   openedDocumentID,

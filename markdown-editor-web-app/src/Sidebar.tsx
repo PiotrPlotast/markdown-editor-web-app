@@ -28,7 +28,6 @@ export default function Sidebar({
   }
 
   function handleClick(document: Document) {
-    console.log(document.content);
     if (document.name === openedDocumentName) {
       setOpenedDocumentName("");
       setOpenedDocumentContent("");

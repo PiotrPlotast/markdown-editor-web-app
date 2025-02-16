@@ -1,9 +1,17 @@
 import logo from "./assets/logo.svg";
 import ThemeSwitcher from "./ThemeSwitcher";
 import NewDocumentButton from "./NewDocumentButton";
-import SignOutButton from "./SignOutButton";
 import IconDocument from "./assets/icon-document.svg";
-import { getDocumentID } from "./FireStore";
+interface SidebarProps {
+  sidebarIsOpen: boolean;
+  openedDocumentID: string;
+  setOpenedDocumentID: (id: string) => void;
+  setOpenedDocumentName: (name: string) => void;
+  setOpenedDocumentContent: (content: string) => void;
+  documentsList: { id: string; name: string; contents: string; date: string }[];
+  setDocumentCount: (count: number) => void;
+}
+
 export default function Sidebar({
   sidebarIsOpen,
   openedDocumentID,
@@ -12,15 +20,21 @@ export default function Sidebar({
   setOpenedDocumentContent,
   documentsList,
   setDocumentCount,
-}) {
-  function handleClick(document) {
-    const id = getDocumentID(document);
+}: SidebarProps) {
+  interface Document {
+    id: string;
+    name: string;
+    contents: string;
+    date: string;
+  }
+
+  function handleClick(document: Document) {
     if (document.id === openedDocumentID) {
       setOpenedDocumentID("");
       setOpenedDocumentName("");
       setOpenedDocumentContent("");
     } else {
-      setOpenedDocumentID(id);
+      setOpenedDocumentID(document.id);
       setOpenedDocumentName(document.name);
       setOpenedDocumentContent(document.contents);
     }
@@ -65,7 +79,6 @@ export default function Sidebar({
       </div>
       <div className="flex items-center justify-between pr-8">
         <ThemeSwitcher />
-        <SignOutButton />
       </div>
     </div>
   );

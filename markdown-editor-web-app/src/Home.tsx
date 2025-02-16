@@ -3,9 +3,6 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import DocLayout from "./DocLayout";
 import NoDocLayout from "./NoDocLayout";
-import { queryForDocuments } from "./FireStore";
-import { getAuth } from "firebase/auth";
-import { app } from "./Firebase";
 
 export default function Home() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
@@ -14,20 +11,7 @@ export default function Home() {
   const [openedDocumentContent, setOpenedDocumentContent] = useState("");
   const [documentsList, setDocumentsList] = useState([]);
   const [documentCount, setDocumentCount] = useState(0);
-  const auth = getAuth(app);
-  const user = auth.currentUser;
 
-  useEffect(() => {
-    async function fetchData() {
-      if (user) {
-        const result = await queryForDocuments();
-        const userDocuments = result.filter((doc) => doc.userID === user.uid);
-        setDocumentsList(userDocuments);
-      }
-    }
-
-    fetchData();
-  }, [documentCount, user]);
   return (
     <div className="h-[100dvh] overflow-hidden">
       <Navbar
@@ -35,6 +19,7 @@ export default function Home() {
         openedDocumentID={openedDocumentID}
         sidebarIsOpen={sidebarIsOpen}
         setSidebarIsOpen={setSidebarIsOpen}
+        setOpenedDocumentName={undefined}
       />
       <Sidebar
         sidebarIsOpen={sidebarIsOpen}

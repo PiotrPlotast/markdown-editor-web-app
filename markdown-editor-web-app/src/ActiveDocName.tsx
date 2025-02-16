@@ -1,9 +1,13 @@
 import blank from "./assets/icon-document.svg";
 
+interface ActiveDocNameProps {
+  openedDocumentName: string;
+  setOpenedDocumentName: React.Dispatch<React.SetStateAction<string>>;
+}
 export default function ActiveDocName({
   openedDocumentName,
   setOpenedDocumentName,
-}) {
+}: ActiveDocNameProps) {
   return (
     <div className="flex items-center space-x-4 sm:space-x-2">
       <div>

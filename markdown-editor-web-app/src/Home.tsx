@@ -3,44 +3,42 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import DocLayout from "./DocLayout";
 import NoDocLayout from "./NoDocLayout";
+import data from "./data.json";
 export default function Home() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
-  const [openedDocumentID, setOpenedDocumentID] = useState("");
   const [openedDocumentName, setOpenedDocumentName] = useState("");
   const [openedDocumentContent, setOpenedDocumentContent] = useState("");
-  const [documentsList, setDocumentsList] = useState([]);
-  const [documentCount, setDocumentCount] = useState(0);
+  const [documentsList, setDocumentsList] = useState<
+    { createdAt: string; name: string; content: string }[]
+  >([]);
 
+  useEffect(() => {
+    setDocumentsList(data);
+  }, []);
   return (
     <div className="h-[100dvh] overflow-hidden">
       <Navbar
         openedDocumentName={openedDocumentName}
-        openedDocumentID={openedDocumentID}
         sidebarIsOpen={sidebarIsOpen}
         setSidebarIsOpen={setSidebarIsOpen}
-        setOpenedDocumentName={undefined}
+        setOpenedDocumentName={setOpenedDocumentName}
       />
       <Sidebar
         sidebarIsOpen={sidebarIsOpen}
-        setOpenedDocumentID={setOpenedDocumentID}
+        openedDocumentName={openedDocumentName}
         setOpenedDocumentName={setOpenedDocumentName}
-        openedDocumentID={openedDocumentID}
         setOpenedDocumentContent={setOpenedDocumentContent}
         documentsList={documentsList}
-        setDocumentCount={setDocumentCount}
       />
-      {openedDocumentID ? (
+      {openedDocumentName ? (
         <DocLayout
-          openedDocumentID={openedDocumentID}
+          openedDocumentName={openedDocumentName}
           sidebarIsOpen={sidebarIsOpen}
           openedDocumentContent={openedDocumentContent}
           setOpenedDocumentContent={setOpenedDocumentContent}
         />
       ) : (
-        <NoDocLayout
-          sidebarIsOpen={sidebarIsOpen}
-          setDocumentCount={setDocumentCount}
-        />
+        <NoDocLayout sidebarIsOpen={sidebarIsOpen} />
       )}
     </div>
   );

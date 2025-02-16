@@ -3,13 +3,19 @@ import ActiveDocName from "./ActiveDocName";
 import DeleteButton from "./DeleteButton";
 import SaveButton from "./SaveButton";
 import logo from "./assets/logo.svg";
+
+interface NavbarProps {
+  openedDocumentName: string;
+  setOpenedDocumentName: React.Dispatch<React.SetStateAction<string>>;
+  sidebarIsOpen: boolean;
+  setSidebarIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 export default function Navbar({
   openedDocumentName,
   setOpenedDocumentName,
-  openedDocumentID,
   sidebarIsOpen,
   setSidebarIsOpen,
-}) {
+}: NavbarProps) {
   return (
     <nav
       className={`${
@@ -30,7 +36,7 @@ export default function Navbar({
           />
         </div>
         <div className="flex space-x-6 mr-2 sm:mr-4">
-          <DeleteButton openedDocumentID={openedDocumentID} />
+          <DeleteButton />
           <SaveButton />
         </div>
       </div>

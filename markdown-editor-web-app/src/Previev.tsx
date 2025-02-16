@@ -1,13 +1,22 @@
 import iconHidePreview from "./assets/icon-hide-preview.svg";
 import iconShowPreview from "./assets/icon-show-preview.svg";
 import Markdown from "react-markdown";
+
+interface PrevievProps {
+  showPreview: boolean;
+  setShowPreview: React.Dispatch<React.SetStateAction<boolean>>;
+  showEditor: boolean;
+  setShowEditor: React.Dispatch<React.SetStateAction<boolean>>;
+  markdown: string;
+}
+
 export default function Previev({
   showPreview,
   setShowPreview,
   showEditor,
   setShowEditor,
   markdown,
-}) {
+}: PrevievProps) {
   const previevMarkdown = markdown;
   return (
     <div

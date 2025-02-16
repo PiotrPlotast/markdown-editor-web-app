@@ -4,39 +4,37 @@ import NewDocumentButton from "./NewDocumentButton";
 import IconDocument from "./assets/icon-document.svg";
 interface SidebarProps {
   sidebarIsOpen: boolean;
-  openedDocumentID: string;
-  setOpenedDocumentID: (id: string) => void;
+  openedDocumentName: string;
   setOpenedDocumentName: (name: string) => void;
   setOpenedDocumentContent: (content: string) => void;
-  documentsList: { id: string; name: string; contents: string; date: string }[];
-  setDocumentCount: (count: number) => void;
+  documentsList: {
+    createdAt: string;
+    name: string;
+    content: string;
+  }[];
 }
 
 export default function Sidebar({
   sidebarIsOpen,
-  openedDocumentID,
-  setOpenedDocumentID,
+  openedDocumentName,
   setOpenedDocumentName,
   setOpenedDocumentContent,
   documentsList,
-  setDocumentCount,
 }: SidebarProps) {
   interface Document {
-    id: string;
     name: string;
-    contents: string;
-    date: string;
+    content: string;
+    createdAt: string;
   }
 
   function handleClick(document: Document) {
-    if (document.id === openedDocumentID) {
-      setOpenedDocumentID("");
+    console.log(document.content);
+    if (document.name === openedDocumentName) {
       setOpenedDocumentName("");
       setOpenedDocumentContent("");
     } else {
-      setOpenedDocumentID(document.id);
       setOpenedDocumentName(document.name);
-      setOpenedDocumentContent(document.contents);
+      setOpenedDocumentContent(document.content);
     }
   }
   return (
@@ -52,21 +50,21 @@ export default function Sidebar({
         <h2 className="text-gray-500 text-heading-s uppercase font-roboto my-7 tracking-[2px]">
           My Documents
         </h2>
-        <NewDocumentButton setDocumentCount={setDocumentCount} />
+        <NewDocumentButton />
         <ul>
           {documentsList.map((document) => (
             <button
               onClick={() => {
                 handleClick(document);
               }}
-              key={document.id}
+              key={document.name}
               className="text-gray-500 text-heading-s"
             >
               <div className="flex items-center space-x-2">
                 <img src={IconDocument} alt="" />
                 <div className="flex flex-col items-start">
                   <span className="text-gray-500 text-body">
-                    {document.date}
+                    {document.createdAt}
                   </span>
                   <span className="text-white text-heading-m">
                     {document.name}

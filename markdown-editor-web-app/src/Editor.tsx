@@ -1,5 +1,14 @@
 import iconShowPreview from "./assets/icon-show-preview.svg";
 
+interface ActiveDocumentProps {
+  showEditor: boolean;
+  setShowEditor: React.Dispatch<React.SetStateAction<boolean>>;
+  showPreview: boolean;
+  setShowPreview: React.Dispatch<React.SetStateAction<boolean>>;
+  setMarkdown: React.Dispatch<React.SetStateAction<string>>;
+  markdown: string;
+}
+
 export default function ActiveDocument({
   showEditor,
   setShowEditor,
@@ -7,7 +16,7 @@ export default function ActiveDocument({
   setShowPreview,
   setMarkdown,
   markdown,
-}) {
+}: ActiveDocumentProps) {
   return (
     <div
       className={`${showEditor && "hidden"} ${

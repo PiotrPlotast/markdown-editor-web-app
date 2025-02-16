@@ -1,6 +1,14 @@
 import iconMenu from "./assets/icon-menu.svg";
 import iconClose from "./assets/icon-close.svg";
-export default function SidebarToggle({ sidebarIsOpen, setSidebarIsOpen }) {
+
+interface SidebarToggleProps {
+  sidebarIsOpen: boolean;
+  setSidebarIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export default function SidebarToggle({
+  sidebarIsOpen,
+  setSidebarIsOpen,
+}: SidebarToggleProps) {
   return (
     <button
       onClick={() => {

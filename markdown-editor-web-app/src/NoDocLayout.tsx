@@ -2,7 +2,7 @@ import NewDocumentButton from "./NewDocumentButton";
 
 interface NoDocLayoutProps {
   sidebarIsOpen: boolean;
-  setDocumentCount: (prevCount: number) => number;
+  setDocumentCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export default function NoDocLayout({

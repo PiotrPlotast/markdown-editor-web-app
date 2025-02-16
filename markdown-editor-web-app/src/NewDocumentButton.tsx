@@ -1,6 +1,12 @@
-export default function NewDocumentButton({ setDocumentCount }) {
+interface NewDocumentButtonProps {
+  setDocumentCount: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export default function NewDocumentButton({
+  setDocumentCount,
+}: NewDocumentButtonProps) {
   async function addNewDocument() {
-    setDocumentCount((prevCount) => prevCount + 1);
+    setDocumentCount((prevCount: number) => prevCount + 1);
   }
   return (
     <button

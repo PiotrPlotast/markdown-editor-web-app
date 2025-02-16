@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import DocLayout from "./DocLayout";
 import NoDocLayout from "./NoDocLayout";
-
 export default function Home() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [openedDocumentID, setOpenedDocumentID] = useState("");

@@ -1,0 +1,5 @@
+{
+	"dependencies": {
+		"jsx-runtime": "link:@types/react/jsx-runtime"
+	}
+}

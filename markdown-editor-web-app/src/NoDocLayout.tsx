@@ -7,7 +7,7 @@ export default function NoDocLayout({
 }) {
   return (
     <div
-      className={` flex flex-col gap-4 items-center justify-center h-full transition-all right-0 ${
+      className={`flex flex-col gap-4 items-center justify-center h-full transition-all right-0 ${
         sidebarIsOpen && "sm:ml-64"
       }`}
     >

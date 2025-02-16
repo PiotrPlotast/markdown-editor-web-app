@@ -1,6 +1,10 @@
 import iconHidePreview from "./assets/icon-hide-preview.svg";
 import iconShowPreview from "./assets/icon-show-preview.svg";
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import rehypeRaw from "rehype-raw";
+import rehypeSanitize from "rehype-sanitize";
 
 interface PrevievProps {
   showPreview: boolean;
@@ -41,7 +45,12 @@ export default function Previev({
       </div>
       <div className="flex items-center justify-center ">
         <div className="px-5 pt-4 font-robotoSlab max-w-2xl">
-          <Markdown>{previevMarkdown}</Markdown>
+          <Markdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeSanitize]}
+          >
+            {previevMarkdown}
+          </Markdown>
         </div>
       </div>
     </div>

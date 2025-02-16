@@ -1,10 +1,14 @@
 import NewDocumentButton from "./NewDocumentButton";
+
+interface NoDocLayoutProps {
+  sidebarIsOpen: boolean;
+  setDocumentCount: (prevCount: number) => number;
+}
+
 export default function NoDocLayout({
   sidebarIsOpen,
   setDocumentCount,
-}: {
-  sidebarIsOpen: boolean;
-}) {
+}: NoDocLayoutProps) {
   return (
     <div
       className={`flex flex-col gap-4 items-center justify-center h-full transition-all right-0 ${

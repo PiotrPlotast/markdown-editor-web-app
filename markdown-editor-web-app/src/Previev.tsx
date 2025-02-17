@@ -24,9 +24,7 @@ export default function Previev({
   const previevMarkdown = markdown;
   return (
     <div
-      className={`${
-        !showPreview && "hidden"
-      } sm:block flex flex-col overflow-auto`}
+      className={`${!showPreview && "hidden"} sm:block flex flex-col h-full`}
     >
       <div
         className={`bg-gray-200 h-[2.625rem] flex items-center justify-between px-4`}
@@ -43,7 +41,7 @@ export default function Previev({
           <img src={showEditor ? iconHidePreview : iconShowPreview} alt="" />
         </button>
       </div>
-      <div className="flex items-center justify-center ">
+      <div className="flex items-center justify-center">
         <div className="px-5 pt-4 font-robotoSlab max-w-2xl">
           <Markdown
             remarkPlugins={[remarkGfm]}

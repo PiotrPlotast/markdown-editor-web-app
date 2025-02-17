@@ -17,9 +17,9 @@ export default function DocLayout({
   const [markdown, setMarkdown] = useState(openedDocumentContent);
   return (
     <div
-      className={`transition-all sm:grid h-full ${
-        !showEditor && "sm:grid-cols-2"
-      } ${sidebarIsOpen && "sm:ml-64"}`}
+      className={`transition-all md:grid h-full ${
+        !showEditor && "md:grid-cols-2"
+      } ${sidebarIsOpen && "md:ml-64"}`}
     >
       <Editor
         showPreview={showPreview}

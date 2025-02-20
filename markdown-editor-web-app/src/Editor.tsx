@@ -39,9 +39,8 @@ export default function ActiveDocument({
           <img src={iconShowPreview} alt="" />
         </button>
       </div>
-      <div className="h-full">
+      <div className="">
         <textarea
-          style={{ height: "calc(100% - 7rem)" }}
           name="markdown"
           id="markdown"
           className="w-full p-4 font-robotoMono text-p leading-6 text-gray-700 focus:outline-none"

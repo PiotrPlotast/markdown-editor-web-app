@@ -16,7 +16,7 @@ export default function Home() {
     setDocumentsList(data);
   }, []);
   return (
-    <div className="h-[100dvh] overflow-hidden">
+    <div className="h-dvh overflow-hidden">
       <Navbar
         openedDocumentName={openedDocumentName}
         sidebarIsOpen={sidebarIsOpen}

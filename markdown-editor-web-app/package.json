@@ -13,8 +13,6 @@
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.3",
     "@supabase/supabase-js": "^2.48.1",
-    "firebase": "^10.10.0",
-    "firebaseui": "^6.1.0",
     "generate-unique-id": "^2.0.3",
     "jsx-runtime": "link:@types/react/jsx-runtime",
     "react": "^18.2.0",

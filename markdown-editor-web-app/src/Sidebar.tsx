@@ -2,6 +2,7 @@ import logo from "./assets/logo.svg";
 import ThemeSwitcher from "./ThemeSwitcher";
 import NewDocumentButton from "./NewDocumentButton";
 import IconDocument from "./assets/icon-document.svg";
+import LogoutBtn from "./LogoutBtn";
 interface SidebarProps {
   sidebarIsOpen: boolean;
   openedDocumentName: string;
@@ -76,6 +77,7 @@ export default function Sidebar({
       </div>
       <div className="flex items-center justify-between pr-8">
         <ThemeSwitcher />
+        <LogoutBtn />
       </div>
     </div>
   );

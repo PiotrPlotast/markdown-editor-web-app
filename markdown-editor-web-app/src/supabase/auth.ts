@@ -1,6 +1,6 @@
 import supabase from "./supabase";
 
-async function signUpNewUser(email, password) {
+async function signUpNewUser(email: string, password: string) {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -10,7 +10,7 @@ async function signUpNewUser(email, password) {
   });
 }
 
-async function signInWithEmail(email, password) {
+async function signInWithEmail(email: string, password: string) {
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -33,7 +33,7 @@ async function resetPassword() {
   });
 }
 
-async function updatePassword(new_password) {
+async function updatePassword(new_password: string) {
   await supabase.auth.updateUser({ password: new_password });
 }
 

@@ -22,10 +22,16 @@ const createNewDocument = async () => {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) return; // No user logged in
+  const today = new Date();
+  const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`;
+
   const { data, error } = await supabase.from("documents").insert({
     user_id: user.id,
     name: "Untitled",
     content: "",
+    created_at: formattedDate,
   });
 
   if (error) {

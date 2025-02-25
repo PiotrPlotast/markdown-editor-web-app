@@ -13,8 +13,26 @@ const fetchDocuments = async () => {
   if (error) {
     console.error("Error fetching documents:", error.message);
   } else {
-    console.log("Documents:", data);
+    return data;
   }
 };
 
-export { fetchDocuments };
+const createNewDocument = async () => {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return; // No user logged in
+  const { data, error } = await supabase.from("documents").insert({
+    user_id: user.id,
+    name: "Untitled",
+    content: "",
+  });
+
+  if (error) {
+    console.error("Error creating new document:", error.message);
+  } else {
+    return data;
+  }
+};
+
+export { fetchDocuments, createNewDocument };

@@ -3,7 +3,8 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import DocLayout from "./DocLayout";
 import NoDocLayout from "./NoDocLayout";
-import data from "./data.json";
+import { fetchDocuments } from "./supabase/db";
+
 export default function Home() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [openedDocumentName, setOpenedDocumentName] = useState("");
@@ -13,8 +14,13 @@ export default function Home() {
   >([]);
 
   useEffect(() => {
-    setDocumentsList(data);
-  }, []);
+    fetchDocuments().then((data) => {
+      if (data) {
+        setDocumentsList(data);
+      }
+    });
+  }, [documentsList]);
+
   return (
     <div className="h-dvh overflow-hidden">
       <Navbar

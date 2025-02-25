@@ -1,5 +1,8 @@
+import { createNewDocument } from "./supabase/db";
 export default function NewDocumentButton() {
-  async function addNewDocument() {}
+  async function addNewDocument() {
+    await createNewDocument();
+  }
   return (
     <button
       onClick={() => {

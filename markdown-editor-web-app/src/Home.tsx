@@ -9,8 +9,9 @@ export default function Home() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [openedDocumentName, setOpenedDocumentName] = useState("");
   const [openedDocumentContent, setOpenedDocumentContent] = useState("");
+  const [openedDocumentId, setOpenedDocumentId] = useState("");
   const [documentsList, setDocumentsList] = useState<
-    { createdAt: string; name: string; content: string }[]
+    { created_at: string; name: string; content: string; id: string }[]
   >([]);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function Home() {
         setDocumentsList(data);
       }
     });
-  }, [documentsList]);
+  }, []);
 
   return (
     <div className="h-dvh overflow-hidden">
@@ -33,6 +34,8 @@ export default function Home() {
         sidebarIsOpen={sidebarIsOpen}
         openedDocumentName={openedDocumentName}
         setOpenedDocumentName={setOpenedDocumentName}
+        openedDocumentId={openedDocumentId}
+        setOpenedDocumentId={setOpenedDocumentId}
         setOpenedDocumentContent={setOpenedDocumentContent}
         documentsList={documentsList}
       />

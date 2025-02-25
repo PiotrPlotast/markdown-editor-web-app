@@ -7,11 +7,14 @@ interface SidebarProps {
   sidebarIsOpen: boolean;
   openedDocumentName: string;
   setOpenedDocumentName: (name: string) => void;
+  openedDocumentId: string;
+  setOpenedDocumentId: (id: string) => void;
   setOpenedDocumentContent: (content: string) => void;
   documentsList: {
-    createdAt: string;
+    created_at: string;
     name: string;
     content: string;
+    id: string;
   }[];
 }
 
@@ -19,6 +22,8 @@ export default function Sidebar({
   sidebarIsOpen,
   openedDocumentName,
   setOpenedDocumentName,
+  openedDocumentId,
+  setOpenedDocumentId,
   setOpenedDocumentContent,
   documentsList,
 }: SidebarProps) {
@@ -26,14 +31,17 @@ export default function Sidebar({
     name: string;
     content: string;
     createdAt: string;
+    id: string;
   }
 
   function handleClick(document: Document) {
-    if (document.name === openedDocumentName) {
+    if (document.id === openedDocumentId) {
       setOpenedDocumentName("");
+      setOpenedDocumentId("");
       setOpenedDocumentContent("");
     } else {
       setOpenedDocumentName(document.name);
+      setOpenedDocumentId(document.id);
       setOpenedDocumentContent(document.content);
     }
   }
@@ -51,20 +59,20 @@ export default function Sidebar({
           My Documents
         </h2>
         <NewDocumentButton />
-        <ul>
+        <ul className="flex flex-col space-y-4 mt-4">
           {documentsList.map((document) => (
             <button
               onClick={() => {
                 handleClick(document);
               }}
-              key={document.name}
+              key={document.id}
               className="text-gray-500 text-heading-s"
             >
               <div className="flex items-center space-x-2">
                 <img src={IconDocument} alt="" />
                 <div className="flex flex-col items-start">
                   <span className="text-gray-500 text-body">
-                    {document.createdAt}
+                    {document.created_at}
                   </span>
                   <span className="text-white text-heading-m">
                     {document.name}

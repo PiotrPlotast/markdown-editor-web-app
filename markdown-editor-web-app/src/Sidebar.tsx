@@ -66,7 +66,7 @@ export default function Sidebar({
           documentsChanged={documentsChanged}
           setDocumentsChanged={setDocumentsChanged}
         />
-        <ul className="flex flex-col space-y-4 mt-4">
+        <ul className="flex flex-col space-y-2 mt-4">
           {documentsList.map((document) => (
             <button
               onClick={() => {

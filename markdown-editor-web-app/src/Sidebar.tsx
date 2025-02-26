@@ -5,7 +5,6 @@ import IconDocument from "./assets/icon-document.svg";
 import LogoutBtn from "./LogoutBtn";
 interface SidebarProps {
   sidebarIsOpen: boolean;
-  openedDocumentName: string;
   setOpenedDocumentName: (name: string) => void;
   openedDocumentId: string;
   setOpenedDocumentId: (id: string) => void;
@@ -20,7 +19,6 @@ interface SidebarProps {
 
 export default function Sidebar({
   sidebarIsOpen,
-  openedDocumentName,
   setOpenedDocumentName,
   openedDocumentId,
   setOpenedDocumentId,

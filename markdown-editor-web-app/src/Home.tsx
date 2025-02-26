@@ -13,6 +13,7 @@ export default function Home() {
   const [documentsList, setDocumentsList] = useState<
     { created_at: string; name: string; content: string; id: string }[]
   >([]);
+  const [documentsChanged, setDocumentsChanged] = useState(false);
 
   useEffect(() => {
     fetchDocuments().then((data) => {
@@ -20,7 +21,7 @@ export default function Home() {
         setDocumentsList(data);
       }
     });
-  }, []);
+  }, [documentsChanged]);
 
   return (
     <div className="h-dvh overflow-hidden">
@@ -37,6 +38,8 @@ export default function Home() {
         setOpenedDocumentId={setOpenedDocumentId}
         setOpenedDocumentContent={setOpenedDocumentContent}
         documentsList={documentsList}
+        setDocumentsChanged={setDocumentsChanged}
+        documentsChanged={documentsChanged}
       />
       {openedDocumentName ? (
         <DocLayout
@@ -46,7 +49,11 @@ export default function Home() {
           setOpenedDocumentContent={setOpenedDocumentContent}
         />
       ) : (
-        <NoDocLayout sidebarIsOpen={sidebarIsOpen} />
+        <NoDocLayout
+          sidebarIsOpen={sidebarIsOpen}
+          setDocumentsChanged={setDocumentsChanged}
+          documentsChanged={documentsChanged}
+        />
       )}
     </div>
   );

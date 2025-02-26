@@ -1,7 +1,16 @@
 import { createNewDocument } from "./supabase/db";
-export default function NewDocumentButton() {
+
+interface NewDocumentButtonProps {
+  documentsChanged: boolean;
+  setDocumentsChanged: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export default function NewDocumentButton({
+  documentsChanged,
+  setDocumentsChanged,
+}: NewDocumentButtonProps) {
   async function addNewDocument() {
     await createNewDocument();
+    setDocumentsChanged(!documentsChanged);
   }
   return (
     <button

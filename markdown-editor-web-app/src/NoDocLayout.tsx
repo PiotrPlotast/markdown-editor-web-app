@@ -2,9 +2,15 @@ import NewDocumentButton from "./NewDocumentButton";
 
 interface NoDocLayoutProps {
   sidebarIsOpen: boolean;
+  documentsChanged: boolean;
+  setDocumentsChanged: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function NoDocLayout({ sidebarIsOpen }: NoDocLayoutProps) {
+export default function NoDocLayout({
+  sidebarIsOpen,
+  documentsChanged,
+  setDocumentsChanged,
+}: NoDocLayoutProps) {
   return (
     <div
       className={`flex flex-col gap-4 items-center justify-center h-full transition-all right-0 ${
@@ -14,7 +20,10 @@ export default function NoDocLayout({ sidebarIsOpen }: NoDocLayoutProps) {
       <span className="text-gray-600 font-roboto text-h4 sm:text-h2">
         No Document Selected
       </span>
-      <NewDocumentButton />
+      <NewDocumentButton
+        documentsChanged={documentsChanged}
+        setDocumentsChanged={setDocumentsChanged}
+      />
     </div>
   );
 }

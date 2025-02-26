@@ -3,12 +3,16 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import NewDocumentButton from "./NewDocumentButton";
 import IconDocument from "./assets/icon-document.svg";
 import LogoutBtn from "./LogoutBtn";
+import React from "react";
+
 interface SidebarProps {
   sidebarIsOpen: boolean;
   setOpenedDocumentName: (name: string) => void;
   openedDocumentId: string;
-  setOpenedDocumentId: (id: string) => void;
-  setOpenedDocumentContent: (content: string) => void;
+  setOpenedDocumentId: React.Dispatch<React.SetStateAction<string>>;
+  setOpenedDocumentContent: React.Dispatch<React.SetStateAction<string>>;
+  documentsChanged: boolean;
+  setDocumentsChanged: React.Dispatch<React.SetStateAction<boolean>>;
   documentsList: {
     created_at: string;
     name: string;
@@ -24,6 +28,8 @@ export default function Sidebar({
   setOpenedDocumentId,
   setOpenedDocumentContent,
   documentsList,
+  documentsChanged,
+  setDocumentsChanged,
 }: SidebarProps) {
   interface Document {
     name: string;
@@ -56,7 +62,10 @@ export default function Sidebar({
         <h2 className="text-gray-500 text-heading-s uppercase font-roboto my-7 tracking-[2px]">
           My Documents
         </h2>
-        <NewDocumentButton />
+        <NewDocumentButton
+          documentsChanged={documentsChanged}
+          setDocumentsChanged={setDocumentsChanged}
+        />
         <ul className="flex flex-col space-y-4 mt-4">
           {documentsList.map((document) => (
             <button

@@ -34,7 +34,7 @@ export default function Sidebar({
   interface Document {
     name: string;
     content: string;
-    createdAt: string;
+    created_at: string;
     id: string;
   }
 

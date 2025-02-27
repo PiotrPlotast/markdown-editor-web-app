@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Editor from "./Editor";
-import Previev from "./Previev";
+import Previev from "./Preview";
 
 interface DocLayoutProps {
   sidebarIsOpen: boolean;

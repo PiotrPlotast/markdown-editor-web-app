@@ -6,7 +6,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 
-interface PrevievProps {
+interface PreviewProps {
   showPreview: boolean;
   setShowPreview: React.Dispatch<React.SetStateAction<boolean>>;
   showEditor: boolean;
@@ -14,14 +14,14 @@ interface PrevievProps {
   markdown: string;
 }
 
-export default function Previev({
+export default function Preview({
   showPreview,
   setShowPreview,
   showEditor,
   setShowEditor,
   markdown,
-}: PrevievProps) {
-  const previevMarkdown = markdown;
+}: PreviewProps) {
+  const previewMarkdown = markdown;
   return (
     <div
       className={`${!showPreview && "hidden"} sm:block flex flex-col h-full`}
@@ -30,7 +30,7 @@ export default function Previev({
         className={`bg-gray-200 h-[2.625rem] flex items-center justify-between px-4`}
       >
         <span className="text-gray-500 text-heading-s font-roboto tracking-[2px] font-medium">
-          PREVIEV
+          PREVIEW
         </span>
         <button
           onClick={() => {
@@ -47,7 +47,7 @@ export default function Previev({
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeSanitize]}
           >
-            {previevMarkdown}
+            {previewMarkdown}
           </Markdown>
         </div>
       </div>

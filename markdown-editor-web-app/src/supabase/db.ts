@@ -41,4 +41,17 @@ const createNewDocument = async () => {
   }
 };
 
-export { fetchDocuments, createNewDocument };
+const saveDocument = async (id: string, content: string) => {
+  const { data, error } = await supabase
+    .from("documents")
+    .update({ content })
+    .eq("id", id);
+
+  if (error) {
+    console.error("Error saving document:", error.message);
+  } else {
+    return data;
+  }
+};
+
+export { fetchDocuments, createNewDocument, saveDocument };

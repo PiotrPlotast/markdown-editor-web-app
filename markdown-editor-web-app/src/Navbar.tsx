@@ -9,12 +9,16 @@ interface NavbarProps {
   setOpenedDocumentName: React.Dispatch<React.SetStateAction<string>>;
   sidebarIsOpen: boolean;
   setSidebarIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  openedDocumentContent: string;
+  openedDocumentId: string;
 }
 export default function Navbar({
   openedDocumentName,
   setOpenedDocumentName,
   sidebarIsOpen,
   setSidebarIsOpen,
+  openedDocumentContent,
+  openedDocumentId,
 }: NavbarProps) {
   return (
     <nav
@@ -37,7 +41,10 @@ export default function Navbar({
         </div>
         <div className="flex space-x-6 mr-2 sm:mr-4">
           <DeleteButton />
-          <SaveButton />
+          <SaveButton
+            openedDocumentId={openedDocumentId}
+            openedDocumentContent={openedDocumentContent}
+          />
         </div>
       </div>
     </nav>

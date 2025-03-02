@@ -11,6 +11,7 @@ interface DocLayoutProps {
 export default function DocLayout({
   sidebarIsOpen,
   openedDocumentContent,
+  setOpenedDocumentContent,
 }: DocLayoutProps) {
   const [showPreview, setShowPreview] = useState(true);
   const [showEditor, setShowEditor] = useState(true);
@@ -28,6 +29,8 @@ export default function DocLayout({
         setShowEditor={setShowEditor}
         markdown={markdown}
         setMarkdown={setMarkdown}
+        openedDocumentContent={openedDocumentContent}
+        setOpenedDocumentContent={setOpenedDocumentContent}
       />
       <Previev
         showPreview={showPreview}
@@ -35,6 +38,7 @@ export default function DocLayout({
         showEditor={showEditor}
         setShowEditor={setShowEditor}
         markdown={markdown}
+        openedDocumentContent={openedDocumentContent}
       />
     </div>
   );

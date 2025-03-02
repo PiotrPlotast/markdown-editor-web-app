@@ -30,6 +30,8 @@ export default function Home() {
         sidebarIsOpen={sidebarIsOpen}
         setSidebarIsOpen={setSidebarIsOpen}
         setOpenedDocumentName={setOpenedDocumentName}
+        openedDocumentId={openedDocumentId}
+        openedDocumentContent={openedDocumentContent}
       />
       <Sidebar
         sidebarIsOpen={sidebarIsOpen}

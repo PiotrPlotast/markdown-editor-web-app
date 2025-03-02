@@ -16,6 +16,8 @@ export default function ActiveDocument({
   setShowPreview,
   setMarkdown,
   markdown,
+  openedDocumentContent,
+  setOpenedDocumentContent,
 }: ActiveDocumentProps) {
   return (
     <div
@@ -44,8 +46,8 @@ export default function ActiveDocument({
           name="markdown"
           id="markdown"
           className="w-full p-4 font-robotoMono text-p leading-6 text-gray-700 focus:outline-none"
-          value={markdown}
-          onChange={(e) => setMarkdown(e.target.value)}
+          value={openedDocumentContent}
+          onChange={(e) => setOpenedDocumentContent(e.target.value)}
         ></textarea>
       </div>
     </div>

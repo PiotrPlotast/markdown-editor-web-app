@@ -20,6 +20,7 @@ export default function Preview({
   showEditor,
   setShowEditor,
   markdown,
+  openedDocumentContent,
 }: PreviewProps) {
   const previewMarkdown = markdown;
   return (
@@ -47,7 +48,7 @@ export default function Preview({
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeSanitize]}
           >
-            {previewMarkdown}
+            {openedDocumentContent}
           </Markdown>
         </div>
       </div>

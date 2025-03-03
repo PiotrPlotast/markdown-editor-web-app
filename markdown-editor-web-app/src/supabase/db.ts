@@ -42,10 +42,16 @@ const createNewDocument = async () => {
 };
 
 const saveDocument = async (id: string, content: string) => {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return; // No user logged in
   const { data, error } = await supabase
     .from("documents")
-    .update({ content })
-    .eq("id", id);
+    .update({ content: content })
+    .eq("id", id)
+    .eq("user_id", user.id)
+    .select();
 
   if (error) {
     console.error("Error saving document:", error.message);

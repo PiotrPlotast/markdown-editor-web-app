@@ -60,4 +60,19 @@ const saveDocument = async (id: string, content: string) => {
   }
 };
 
-export { fetchDocuments, createNewDocument, saveDocument };
+const deleteDocument = async (id: string) => {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return; // No user logged in
+  const { error } = await supabase
+    .from("documents")
+    .delete()
+    .eq("id", id)
+    .eq("user_id", user.id);
+
+  if (error) {
+    console.error("Error deleting document:", error.message);
+  }
+};
+export { fetchDocuments, createNewDocument, saveDocument, deleteDocument };

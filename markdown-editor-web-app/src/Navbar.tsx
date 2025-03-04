@@ -40,7 +40,7 @@ export default function Navbar({
           />
         </div>
         <div className="flex space-x-6 mr-2 sm:mr-4">
-          <DeleteButton />
+          <DeleteButton openedDocumentId={openedDocumentId} />
           <SaveButton
             openedDocumentId={openedDocumentId}
             openedDocumentContent={openedDocumentContent}

@@ -1,10 +1,20 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 import supabase from "../supabase/supabase";
+import { User } from "@supabase/supabase-js";
+const AuthContext = createContext<{ user: User | null }>({ user: null });
 
-const AuthContext = createContext({ user: null });
+interface AuthProviderProps {
+  children: ReactNode;
+}
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+export const AuthProvider = ({ children }: AuthProviderProps) => {
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const checkUser = async () => {

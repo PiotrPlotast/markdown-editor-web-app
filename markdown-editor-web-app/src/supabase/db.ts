@@ -4,7 +4,7 @@ const fetchDocuments = async () => {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return; // No user logged in
+  if (!user) return;
   const { data, error } = await supabase
     .from("documents")
     .select("*")
@@ -21,7 +21,7 @@ const createNewDocument = async () => {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return; // No user logged in
+  if (!user) return;
   const today = new Date();
   const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1)
     .toString()
@@ -45,13 +45,12 @@ const saveDocument = async (id: string, content: string) => {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return; // No user logged in
+  if (!user) return;
   const { data, error } = await supabase
     .from("documents")
     .update({ content: content })
     .eq("id", id)
-    .eq("user_id", user.id)
-    .select();
+    .eq("user_id", user.id);
 
   if (error) {
     console.error("Error saving document:", error.message);
@@ -64,7 +63,7 @@ const deleteDocument = async (id: string) => {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return; // No user logged in
+  if (!user) return;
   const { error } = await supabase
     .from("documents")
     .delete()
@@ -75,4 +74,28 @@ const deleteDocument = async (id: string) => {
     console.error("Error deleting document:", error.message);
   }
 };
-export { fetchDocuments, createNewDocument, saveDocument, deleteDocument };
+
+const updateDocumentName = async (id: string, name: string) => {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return;
+  const { data, error } = await supabase
+    .from("documents")
+    .update({ name: name })
+    .eq("id", id)
+    .eq("user_id", user.id);
+
+  if (error) {
+    console.error("Error saving document:", error.message);
+  } else {
+    return data;
+  }
+};
+export {
+  fetchDocuments,
+  createNewDocument,
+  saveDocument,
+  deleteDocument,
+  updateDocumentName,
+};

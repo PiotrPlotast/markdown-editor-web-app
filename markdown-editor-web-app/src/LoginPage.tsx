@@ -21,7 +21,7 @@ export default function LoginPage() {
       <div className="bg-gray-100 p-8 rounded-lg flex flex-col items-center">
         <h1>{login ? "Login" : "Register"}</h1>
         {login ? (
-          <form onSubmit={handleEmailLogin} className="flex flex-col gap-4">
+          <form onSubmit={handleEmailLogin} className="flex flex-col gap-6">
             <label>
               Email:
               <input
@@ -46,7 +46,7 @@ export default function LoginPage() {
             </button>
           </form>
         ) : (
-          <form onSubmit={handleEmailRegister} className="flex flex-col gap-4">
+          <form onSubmit={handleEmailRegister} className="flex flex-col gap-6">
             <label>
               Email:
               <input
@@ -71,7 +71,7 @@ export default function LoginPage() {
             </button>
           </form>
         )}
-        <h2>
+        <h2 className="mt-4">
           {login ? "Do not have an account yet?" : "Already have an account?"}
         </h2>
         <button className="underline" onClick={() => setLogin(!login)}>

@@ -1,10 +1,8 @@
-import { useAuth } from "./context/AuthContext";
 import { signOut } from "./supabase/auth";
 export default function LogoutBtn() {
-  const user = useAuth();
   const handleLogout = async () => {
     try {
-      await signOut(user);
+      await signOut();
     } catch (error) {
       console.error("Error logging out", error);
     }

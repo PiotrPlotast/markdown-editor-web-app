@@ -43,8 +43,10 @@ export default function Navbar({
           <img src={logo} alt="" className="hidden lg:block" />
           <div className="hidden lg:block lg:h-full lg:w-[1px] lg:bg-gray-600 mr-6 lg:ml-8"></div>
           <ActiveDocName
+            openedDocumentId={openedDocumentId}
             openedDocumentName={openedDocumentName}
             setOpenedDocumentName={setOpenedDocumentName}
+            setDocumentsChanged={setDocumentsChanged}
           />
         </div>
         <div className="flex space-x-6 mr-2 sm:mr-4">

@@ -5,8 +5,8 @@ interface ActiveDocumentProps {
   setShowEditor: React.Dispatch<React.SetStateAction<boolean>>;
   showPreview: boolean;
   setShowPreview: React.Dispatch<React.SetStateAction<boolean>>;
-  setMarkdown: React.Dispatch<React.SetStateAction<string>>;
-  markdown: string;
+  setOpenedDocumentContent: React.Dispatch<React.SetStateAction<string>>;
+  openedDocumentContent: string;
 }
 
 export default function ActiveDocument({
@@ -14,8 +14,6 @@ export default function ActiveDocument({
   setShowEditor,
   showPreview,
   setShowPreview,
-  setMarkdown,
-  markdown,
   openedDocumentContent,
   setOpenedDocumentContent,
 }: ActiveDocumentProps) {

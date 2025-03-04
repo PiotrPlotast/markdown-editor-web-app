@@ -4,7 +4,6 @@ import Previev from "./Preview";
 
 interface DocLayoutProps {
   sidebarIsOpen: boolean;
-  openedDocumentName: string;
   openedDocumentContent: string;
   setOpenedDocumentContent: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -15,7 +14,6 @@ export default function DocLayout({
 }: DocLayoutProps) {
   const [showPreview, setShowPreview] = useState(true);
   const [showEditor, setShowEditor] = useState(true);
-  const [markdown, setMarkdown] = useState(openedDocumentContent);
   return (
     <div
       className={`transition-all md:grid h-full ${
@@ -27,8 +25,6 @@ export default function DocLayout({
         setShowPreview={setShowPreview}
         showEditor={showEditor}
         setShowEditor={setShowEditor}
-        markdown={markdown}
-        setMarkdown={setMarkdown}
         openedDocumentContent={openedDocumentContent}
         setOpenedDocumentContent={setOpenedDocumentContent}
       />
@@ -37,7 +33,6 @@ export default function DocLayout({
         setShowPreview={setShowPreview}
         showEditor={showEditor}
         setShowEditor={setShowEditor}
-        markdown={markdown}
         openedDocumentContent={openedDocumentContent}
       />
     </div>

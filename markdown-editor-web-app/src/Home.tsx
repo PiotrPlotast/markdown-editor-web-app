@@ -32,6 +32,9 @@ export default function Home() {
         setOpenedDocumentName={setOpenedDocumentName}
         openedDocumentId={openedDocumentId}
         openedDocumentContent={openedDocumentContent}
+        documentsChanged={documentsChanged}
+        setDocumentsChanged={setDocumentsChanged}
+        setOpenedDocumentId={setOpenedDocumentId}
       />
       <Sidebar
         sidebarIsOpen={sidebarIsOpen}
@@ -43,9 +46,8 @@ export default function Home() {
         setDocumentsChanged={setDocumentsChanged}
         documentsChanged={documentsChanged}
       />
-      {openedDocumentName ? (
+      {openedDocumentId ? (
         <DocLayout
-          openedDocumentName={openedDocumentName}
           sidebarIsOpen={sidebarIsOpen}
           openedDocumentContent={openedDocumentContent}
           setOpenedDocumentContent={setOpenedDocumentContent}

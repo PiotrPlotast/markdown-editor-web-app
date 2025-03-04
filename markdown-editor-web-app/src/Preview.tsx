@@ -11,7 +11,7 @@ interface PreviewProps {
   setShowPreview: React.Dispatch<React.SetStateAction<boolean>>;
   showEditor: boolean;
   setShowEditor: React.Dispatch<React.SetStateAction<boolean>>;
-  markdown: string;
+  openedDocumentContent: string;
 }
 
 export default function Preview({
@@ -19,10 +19,8 @@ export default function Preview({
   setShowPreview,
   showEditor,
   setShowEditor,
-  markdown,
   openedDocumentContent,
 }: PreviewProps) {
-  const previewMarkdown = markdown;
   return (
     <div
       className={`${!showPreview && "hidden"} sm:block flex flex-col h-full`}

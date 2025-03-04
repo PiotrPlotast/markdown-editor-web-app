@@ -71,7 +71,7 @@ export default function LoginPage() {
             </button>
           </form>
         )}
-        <h2 className="mt-4">
+        <h2 className="mt-4 mb-2">
           {login ? "Do not have an account yet?" : "Already have an account?"}
         </h2>
         <button className="underline" onClick={() => setLogin(!login)}>

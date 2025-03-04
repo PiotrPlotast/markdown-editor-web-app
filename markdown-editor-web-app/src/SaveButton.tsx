@@ -3,15 +3,17 @@ import { saveDocument } from "./supabase/db";
 export default function SaveButton({
   openedDocumentId,
   openedDocumentContent,
+  documentsChanged,
+  setDocumentsChanged,
 }: {
   openedDocumentId: string;
   openedDocumentContent: string;
+  documentsChanged: boolean;
+  setDocumentsChanged: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const handleSaveDocument = async () => {
-    console.log("Saving document...");
-    console.log("Document ID:", openedDocumentId);
-    console.log("Document Content:", openedDocumentContent);
     await saveDocument(openedDocumentId, openedDocumentContent);
+    setDocumentsChanged(!documentsChanged);
   };
   return (
     <button

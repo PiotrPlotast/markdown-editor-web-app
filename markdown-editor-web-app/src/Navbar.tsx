@@ -29,8 +29,10 @@ export default function Navbar({
   return (
     <nav
       className={`${
-        sidebarIsOpen ? `translate-x-64` : `translate-x-0`
-      } sticky top-0 w-full transition-all duration-200 ease-in-out bg-gray-800 flex h-14 sm:h-[4.5rem]`}
+        sidebarIsOpen
+          ? `translate-x-64 w-[calc(100%-16rem)]`
+          : `translate-x-0 w-full`
+      } sticky top-0 transition-all duration-200 ease-in-out bg-gray-800 flex h-14 sm:h-[4.5rem]`}
     >
       <SidebarToggle
         sidebarIsOpen={sidebarIsOpen}

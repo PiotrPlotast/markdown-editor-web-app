@@ -4,7 +4,9 @@ async function signUpNewUser(email: string, password: string) {
   await supabase.auth.signUp({
     email,
     password,
-    options: {},
+    options: {
+      emailRedirectTo: "https://markdown-editor-web-app.vercel.app/#",
+    },
   });
 }
 

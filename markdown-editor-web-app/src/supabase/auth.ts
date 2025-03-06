@@ -27,11 +27,9 @@ async function signOut() {
   await supabase.auth.signOut();
 }
 
-// async function resetPassword() {
-//   await supabase.auth.resetPasswordForEmail(email, {
-//     redirectTo: "",
-//   });
-// }
+async function resetPassword() {
+  await supabase.auth.resetPasswordForEmail(email);
+}
 
 async function updatePassword(new_password: string) {
   await supabase.auth.updateUser({ password: new_password });
@@ -42,6 +40,6 @@ export {
   signOut,
   signUpNewUser,
   signInWithEmail,
-  // resetPassword,
+  resetPassword,
   updatePassword,
 };

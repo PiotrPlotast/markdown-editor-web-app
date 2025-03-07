@@ -27,7 +27,7 @@ async function signOut() {
   await supabase.auth.signOut();
 }
 
-async function resetPassword() {
+async function resetPassword(email: string) {
   await supabase.auth.resetPasswordForEmail(email);
 }
 

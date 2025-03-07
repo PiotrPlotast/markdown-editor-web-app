@@ -48,7 +48,7 @@ export default function ActiveDocName({
             </p>
             <input
               type="text"
-              className="text-white placeholder:text-white text-heading-m font-roboto bg-gray-800"
+              className="text-white placeholder:text-white text-heading-m font-roboto bg-gray-700"
               value={openedDocumentName}
               onChange={(e) => {
                 setOpenedDocumentName(e.target.value);

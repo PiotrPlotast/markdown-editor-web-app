@@ -71,13 +71,13 @@ export default function LoginPage() {
             </button>
           </form>
         )}
-        <h2 className="mt-4 mb-2">
+        <h2 className="mt-4 mb-2 text-h4 sm:text-h2">
           {login ? "Do not have an account yet?" : "Already have an account?"}
         </h2>
         <button className="underline" onClick={() => setLogin(!login)}>
           {login ? "Register" : "Login"}
         </button>
-        <h2>Or</h2>
+        <h2 className="text-h4 sm:text-h2">Or</h2>
         <button className="underline" onClick={signInWithGithub}>
           Login with Github
         </button>

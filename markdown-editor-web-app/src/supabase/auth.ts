@@ -11,7 +11,7 @@ async function signUpNewUser(email: string, password: string) {
 }
 
 async function signInWithEmail(email: string, password: string) {
-  await supabase.auth.signInWithPassword({
+  return await supabase.auth.signInWithPassword({
     email,
     password,
   });

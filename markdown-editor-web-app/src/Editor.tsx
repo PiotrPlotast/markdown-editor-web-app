@@ -21,12 +21,12 @@ export default function ActiveDocument({
     <div
       className={`${showEditor && "hidden"} ${
         showEditor && "md:hidden"
-      } h-full`}
+      } h-full md:border-r md:border-r-gray-200 dark:border-r-gray-500`}
     >
       <div
-        className={`bg-gray-200 h-[2.625rem] flex items-center justify-between px-4 md:border-r-[1px] border-r-gray-300 `}
+        className={`bg-gray-100 dark:bg-gray-800 h-[2.625rem] flex items-center justify-between px-4`}
       >
-        <span className="text-gray-500 text-heading-s font-roboto tracking-[2px]">
+        <span className="text-gray-500 dark:text-gray-300 text-heading-s font-roboto tracking-[2px]">
           MARKDOWN
         </span>
         <button
@@ -43,7 +43,7 @@ export default function ActiveDocument({
         <textarea
           name="markdown"
           id="markdown"
-          className="w-full p-4 font-robotoMono text-p leading-6 text-gray-700 focus:outline-none"
+          className="dark:bg-gray-900 dark:text-gray-300 w-full p-4 font-robotoMono text-p leading-6 text-gray-700 focus:outline-none"
           value={openedDocumentContent}
           onChange={(e) => setOpenedDocumentContent(e.target.value)}
         ></textarea>

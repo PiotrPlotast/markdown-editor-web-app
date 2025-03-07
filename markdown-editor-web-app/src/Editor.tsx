@@ -39,7 +39,7 @@ export default function ActiveDocument({
           <img src={iconShowPreview} alt="" />
         </button>
       </div>
-      <div className="">
+      <div className="dark:bg-gray-900 h-full flex">
         <textarea
           name="markdown"
           id="markdown"

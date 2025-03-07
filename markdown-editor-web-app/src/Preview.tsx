@@ -26,9 +26,9 @@ export default function Preview({
       className={`${!showPreview && "hidden"} sm:block flex flex-col h-full`}
     >
       <div
-        className={`bg-gray-200 h-[2.625rem] flex items-center justify-between px-4`}
+        className={`bg-gray-200 dark:bg-gray-800 h-[2.625rem] flex items-center justify-between px-4`}
       >
-        <span className="text-gray-500 text-heading-s font-roboto tracking-[2px] font-medium">
+        <span className="text-gray-500 dark:text-gray-300 text-heading-s font-roboto tracking-[2px] font-medium">
           PREVIEW
         </span>
         <button
@@ -41,7 +41,7 @@ export default function Preview({
         </button>
       </div>
       <div className="flex items-center justify-center">
-        <div className="px-5 pt-4 font-robotoSlab max-w-2xl">
+        <div className="px-5 pt-4 font-robotoSlab max-w-2xl dark:text-gray-300">
           <Markdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeSanitize]}

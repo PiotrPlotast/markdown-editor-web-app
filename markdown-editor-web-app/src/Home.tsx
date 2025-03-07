@@ -24,7 +24,7 @@ export default function Home() {
   }, [documentsChanged]);
 
   return (
-    <div className="h-dvh overflow-hidden">
+    <div className="h-dvh overflow-hidden dark:bg-gray-900">
       <Navbar
         openedDocumentName={openedDocumentName}
         sidebarIsOpen={sidebarIsOpen}

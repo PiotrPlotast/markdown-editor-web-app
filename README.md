@@ -4,7 +4,7 @@
 This online web app lets users make, edit and save markdown documents online.
 ## Authors
 
-- [@Pietrell](https://github.com/PiotrPlotast) (That's me!)
+- [@PiotrPlotast](https://github.com/PiotrPlotast)
 
 
 ## Tech Stack

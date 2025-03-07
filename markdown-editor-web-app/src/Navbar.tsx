@@ -32,7 +32,7 @@ export default function Navbar({
         sidebarIsOpen
           ? `translate-x-64 sm:w-[calc(100%-16rem)]`
           : `translate-x-0 sm:w-full`
-      } sticky top-0 transition-all duration-200 ease-in-out bg-gray-800 flex h-14 sm:h-[4.5rem]`}
+      } sticky top-0 transition-all duration-200 ease-in-out bg-gray-700 flex h-14 sm:h-[4.5rem]`}
     >
       <SidebarToggle
         sidebarIsOpen={sidebarIsOpen}

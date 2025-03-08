@@ -16,6 +16,8 @@ export default function SignUpPage() {
           <label>
             Email:
             <input
+              id="email"
+              autoComplete="email"
               className={`w-full rounded`}
               type="email"
               onChange={(e) => setEmail(e.target.value)}
@@ -24,6 +26,7 @@ export default function SignUpPage() {
           <label>
             Password:
             <input
+              id="password"
               className={`w-full rounded`}
               type="password"
               onChange={(e) => setPassword(e.target.value)}

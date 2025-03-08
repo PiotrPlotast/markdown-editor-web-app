@@ -32,6 +32,8 @@ export default function LoginPage() {
           <label className="flex flex-col gap-2 w-full">
             Email:
             <input
+              id="email"
+              autoComplete="email"
               className={`w-full rounded ${
                 error ? "border border-orange-100" : ""
               }`}
@@ -45,6 +47,7 @@ export default function LoginPage() {
           <label>
             Password:
             <input
+              id="password"
               className={`w-full rounded ${
                 error ? "border border-orange-100" : ""
               }`}

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import Sidebar from "./Sidebar";
-import DocLayout from "./DocLayout";
-import NoDocLayout from "./NoDocLayout";
-import { fetchDocuments } from "./supabase/db";
+import Navbar from "../Navbar";
+import Sidebar from "../Sidebar";
+import DocLayout from "../DocLayout";
+import NoDocLayout from "../NoDocLayout";
+import { fetchDocuments } from "../supabase/db";
 
 export default function Home() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);

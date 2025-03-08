@@ -2,7 +2,7 @@ import {
   signInWithEmail,
   signInWithGithub,
   signUpNewUser,
-} from "./supabase/auth";
+} from "../supabase/auth";
 import { useState } from "react";
 export default function LoginPage() {
   const [login, setLogin] = useState(true);

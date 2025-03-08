@@ -18,8 +18,11 @@ async function signInWithEmail(email: string, password: string) {
 }
 
 async function signInWithGithub() {
-  await supabase.auth.signInWithOAuth({
+  return await supabase.auth.signInWithOAuth({
     provider: "github",
+    options: {
+      redirectTo: "http://localhost:5173/",
+    },
   });
 }
 

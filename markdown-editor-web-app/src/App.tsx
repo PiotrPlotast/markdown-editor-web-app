@@ -1,5 +1,5 @@
-import Home from "./Home";
-import LoginPage from "./LoginPage";
+import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
 import { useAuth } from "./context/AuthContext";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 function App() {
@@ -9,9 +9,12 @@ function App() {
       <Routes>
         <Route
           path="/login"
-          element={!user ? <LoginPage /> : <Navigate to="/" />}
+          element={user ? <Navigate replace to="/" /> : <LoginPage />}
         />
-        <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+        <Route
+          path="/"
+          element={user ? <Home /> : <Navigate replace to="/login" />}
+        />
       </Routes>
     </BrowserRouter>
   );

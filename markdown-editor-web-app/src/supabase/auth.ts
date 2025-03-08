@@ -5,7 +5,7 @@ async function signUpNewUser(email: string, password: string) {
     email,
     password,
     options: {
-      emailRedirectTo: "https://markdown-editor-web-app.vercel.app/#",
+      emailRedirectTo: "https://markdown-editor-web-app.vercel.app/",
     },
   });
 }

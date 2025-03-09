@@ -16,6 +16,8 @@ This online web app lets users make, edit and save markdown documents online.
 
 ## Roadmap
 
+- Work in teams
+
 - Group markdown documents
 
 - Sharing the documents

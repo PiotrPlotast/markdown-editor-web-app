@@ -29,7 +29,7 @@ export default function LoginPage() {
           onSubmit={handleEmailLogin}
           className="flex flex-col gap-6 w-full"
         >
-          <label className="flex flex-col gap-2 w-full">
+          <label className="flex flex-col w-full">
             Email:
             <input
               id="email"

@@ -12,7 +12,10 @@ export default function SignUpPage() {
     <div className="h-dvh flex items-center justify-center bg-gray-900">
       <div className="bg-gray-100 p-8 rounded-lg flex flex-col items-center w-96 sm:w-full sm:max-w-md md:w-7/12 md:max-w-md ">
         <h1>Register</h1>
-        <form onSubmit={handleEmailRegister} className="flex flex-col gap-6">
+        <form
+          onSubmit={handleEmailRegister}
+          className="flex flex-col gap-6 w-full"
+        >
           <label>
             Email:
             <input

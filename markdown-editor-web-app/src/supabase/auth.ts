@@ -11,19 +11,21 @@ async function signUpNewUser(email: string, password: string) {
 }
 
 async function signInWithEmail(email: string, password: string) {
-  return await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
   });
+  return { data, error };
 }
 
 async function signInWithGithub() {
-  return await supabase.auth.signInWithOAuth({
+  const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "github",
     options: {
       redirectTo: "http://localhost:5173/",
     },
   });
+  return { data, error };
 }
 
 async function signOut() {

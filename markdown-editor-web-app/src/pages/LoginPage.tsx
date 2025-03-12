@@ -43,7 +43,7 @@ export default function LoginPage() {
   return (
     <div className="h-dvh flex items-center justify-center bg-gray-900">
       <div className="bg-gray-100 p-8 rounded-lg flex flex-col items-center w-96 sm:w-full sm:max-w-md md:w-7/12 md:max-w-md ">
-        <h1>Login</h1>
+        <h1 className="dark:text-gray-700">Login</h1>
 
         <form
           onSubmit={handleEmailLogin}
@@ -85,13 +85,13 @@ export default function LoginPage() {
             Login
           </button>
         </form>
-        <h2 className="mt-4 mb-2 text-h4 sm:text-h2">
+        <h2 className="mt-4 mb-2 text-h4 sm:text-h2 dark:text-gray-700">
           Do not have an account yet?
         </h2>
         <Link to="/signup" className="underline">
           Sign Up
         </Link>
-        <h2 className="text-h4 sm:text-h2">Or</h2>
+        <h2 className="text-h4 sm:text-h2 dark:text-gray-700">Or</h2>
         <button className="underline" onClick={handleGithubLogin}>
           Login with Github
         </button>

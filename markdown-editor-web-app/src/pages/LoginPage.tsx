@@ -26,8 +26,7 @@ export default function LoginPage() {
   }
 
   async function handleGithubLogin() {
-    const { data, error } = await signInWithGithub();
-    console.log(data);
+    const { error } = await signInWithGithub();
     if (error) {
       setError(true);
     } else {

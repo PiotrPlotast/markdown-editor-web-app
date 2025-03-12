@@ -1,11 +1,14 @@
 import { signInWithEmail, signInWithGithub } from "../supabase/auth";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // Add a state to track error messages
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
+  const { user } = useAuth();
 
   async function handleEmailLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -15,11 +18,28 @@ export default function LoginPage() {
         setError(true);
       } else {
         setError(false);
+        navigate("/"); // Redirect to home page after successful login
       }
     } catch (error) {
       setError(true);
     }
   }
+
+  async function handleGithubLogin() {
+    const { data, error } = await signInWithGithub();
+    console.log(data);
+    if (error) {
+      setError(true);
+    } else {
+      setError(false);
+      navigate("/"); // Redirect to home page after successful login
+    }
+  }
+
+  if (user) {
+    navigate("/"); // Redirect to home page if already logged in
+  }
+
   return (
     <div className="h-dvh flex items-center justify-center bg-gray-900">
       <div className="bg-gray-100 p-8 rounded-lg flex flex-col items-center w-96 sm:w-full sm:max-w-md md:w-7/12 md:max-w-md ">
@@ -72,7 +92,7 @@ export default function LoginPage() {
           Sign Up
         </Link>
         <h2 className="text-h4 sm:text-h2">Or</h2>
-        <button className="underline" onClick={signInWithGithub}>
+        <button className="underline" onClick={handleGithubLogin}>
           Login with Github
         </button>
       </div>

@@ -22,7 +22,7 @@ async function signInWithGithub() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "github",
     options: {
-      redirectTo: "http://localhost:5173/login",
+      redirectTo: "https://markdown-editor-web-app.vercel.app/login",
     },
   });
   return { data, error };

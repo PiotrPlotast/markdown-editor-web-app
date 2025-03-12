@@ -18,7 +18,7 @@ export default function LoginPage() {
         setError(true);
       } else {
         setError(false);
-        navigate("/"); // Redirect to home page after successful login
+        navigate("/");
       }
     } catch (error) {
       setError(true);
@@ -32,12 +32,12 @@ export default function LoginPage() {
       setError(true);
     } else {
       setError(false);
-      navigate("/"); // Redirect to home page after successful login
+      navigate("/");
     }
   }
 
   if (user) {
-    navigate("/"); // Redirect to home page if already logged in
+    navigate("/");
   }
 
   return (
